@@ -1,0 +1,11 @@
+# Acervo do Laboratorio do IFPB Campus Monteiro
+# Formato: tipo;patrimonio;descricao
+# Tipos validos: NOTEBOOK, PROJETOR, KIT_COMPONENTES
+NOTEBOOK;PAT-001;Notebook Dell Latitude 5420 (i5, 16GB, SSD 512GB)
+NOTEBOOK;PAT-002;Notebook Lenovo ThinkPad E14 (Ryzen 5, 16GB)
+PROJETOR;PAT-003;Projetor Epson PowerLite E20 (3400 Lumens HDMI)
+PROJETOR;PAT-004;Projetor BenQ MS550 SVGA (3600 Lumens)
+KIT_COMPONENTES;PAT-005;Kit Didatico Arduino Uno R3 com Sensores e Modulos
+KIT_COMPONENTES;PAT-006;Kit IoT ESP32 com Display OLED e Jumpers
+NOTEBOOK;PAT-007;Notebook Acer Aspire 5 (i7, 16GB, SSD 1TB)
+PROJETOR;PAT-008;Projetor Optoma W316 WXGA
