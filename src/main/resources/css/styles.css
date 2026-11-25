@@ -1,0 +1,201 @@
+/* Estilo Visual Moderno - Sistema de Controle de Emprestimos do Laboratorio IFPB */
+
+.root {
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 13px;
+    -fx-background-color: #f1f5f9;
+}
+
+/* Cabecalho Principal */
+.header-box {
+    -fx-background-color: linear-gradient(to right, #094067, #1b4965, #14919b);
+    -fx-padding: 16px 24px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 8, 0, 0, 2);
+}
+
+.header-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #fffffe;
+}
+
+.header-subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: #d8eefe;
+}
+
+/* Barra de Acoes */
+.toolbar-box {
+    -fx-background-color: #ffffff;
+    -fx-padding: 12px 20px;
+    -fx-spacing: 12px;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 0 0 1 0;
+}
+
+/* Botoes */
+.button {
+    -fx-background-radius: 6px;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 16px;
+    -fx-cursor: hand;
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.06), 3, 0, 0, 1);
+}
+
+.btn-primary {
+    -fx-background-color: #3b82f6;
+}
+.btn-primary:hover {
+    -fx-background-color: #2563eb;
+}
+
+.btn-success {
+    -fx-background-color: #10b981;
+}
+.btn-success:hover {
+    -fx-background-color: #059669;
+}
+
+.btn-warning {
+    -fx-background-color: #f59e0b;
+}
+.btn-warning:hover {
+    -fx-background-color: #d97706;
+}
+
+.btn-secondary {
+    -fx-background-color: #64748b;
+}
+.btn-secondary:hover {
+    -fx-background-color: #475569;
+}
+
+/* Tabelas */
+.table-view {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8px;
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 8px;
+    -fx-table-cell-border-color: transparent;
+    -fx-padding: 4px;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #f8fafc;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 0 0 1 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-font-weight: bold;
+    -fx-text-fill: #475569;
+    -fx-size: 32px;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #f8fafc;
+}
+
+.table-row-cell:even {
+    -fx-background-color: #ffffff;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #e0f2fe;
+    -fx-text-fill: #0369a1;
+}
+
+/* Cards de Totais (Painel de Rodape) */
+.footer-totais {
+    -fx-background-color: #ffffff;
+    -fx-padding: 14px 20px;
+    -fx-spacing: 20px;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 1 0 0 0;
+}
+
+.card-total {
+    -fx-background-color: #f8fafc;
+    -fx-background-radius: 8px;
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 8px;
+    -fx-padding: 10px 18px;
+    -fx-alignment: center-left;
+    -fx-min-width: 170px;
+}
+
+.card-total-valor {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0f172a;
+}
+
+.card-total-label {
+    -fx-font-size: 11px;
+    -fx-text-fill: #64748b;
+    -fx-font-weight: bold;
+}
+
+.card-multas {
+    -fx-background-color: #fef2f2;
+    -fx-border-color: #fecaca;
+}
+.card-multas .card-total-valor {
+    -fx-text-fill: #dc2626;
+}
+
+.card-disponiveis {
+    -fx-background-color: #f0fdf4;
+    -fx-border-color: #bbf7d0;
+}
+.card-disponiveis .card-total-valor {
+    -fx-text-fill: #16a34a;
+}
+
+/* Modais */
+.modal-pane {
+    -fx-background-color: #ffffff;
+    -fx-padding: 24px;
+    -fx-spacing: 16px;
+}
+
+.modal-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0f172a;
+}
+
+.form-label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #334155;
+    -fx-font-size: 12px;
+}
+
+.form-field {
+    -fx-background-radius: 6px;
+    -fx-border-radius: 6px;
+    -fx-border-color: #cbd5e1;
+    -fx-padding: 8px 12px;
+}
+.form-field:focused {
+    -fx-border-color: #3b82f6;
+}
+
+/* Tags de Situacao */
+.badge-disponivel {
+    -fx-background-color: #dcfce7;
+    -fx-text-fill: #15803d;
+    -fx-font-weight: bold;
+    -fx-padding: 3px 8px;
+    -fx-background-radius: 12px;
+}
+
+.badge-emprestado {
+    -fx-background-color: #fee2e2;
+    -fx-text-fill: #b91c1c;
+    -fx-font-weight: bold;
+    -fx-padding: 3px 8px;
+    -fx-background-radius: 12px;
+}

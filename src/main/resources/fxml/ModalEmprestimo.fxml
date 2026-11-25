@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="br.edu.ifpb.laboratorio.gui.controlador.ModalEmprestimoControlador"
+      prefWidth="520.0" spacing="16.0" styleClass="modal-pane" stylesheets="@../css/styles.css">
+
+    <Label text="Novo Empréstimo de Equipamento" styleClass="modal-title"/>
+    <Label text="Selecione o equipamento do acervo e a pessoa responsável pelo empréstimo." style="-fx-text-fill: #64748b;"/>
+
+    <Separator/>
+
+    <!-- SELECAO DO ITEM -->
+    <VBox spacing="6.0">
+        <Label text="Equipamento do Acervo:" styleClass="form-label"/>
+        <ComboBox fx:id="cbItem" prefWidth="480.0" promptText="Selecione um item..." onAction="#handleItemSelecionado" styleClass="form-field"/>
+    </VBox>
+
+    <!-- DETALHES DO ITEM SELECIONADO -->
+    <VBox fx:id="boxDetalhesItem" spacing="4.0" style="-fx-background-color: #f8fafc; -fx-padding: 10; -fx-background-radius: 6; -fx-border-color: #e2e8f0; -fx-border-radius: 6;">
+        <Label fx:id="lblDetalheTipo" text="Tipo: -" style="-fx-font-weight: bold; -fx-text-fill: #334155;"/>
+        <Label fx:id="lblDetalhePrazo" text="Prazo regulamentar: -" style="-fx-text-fill: #475569;"/>
+        <Label fx:id="lblDetalhePrevisao" text="Data prevista para devolução: -" style="-fx-text-fill: #0b6477; -fx-font-weight: bold;"/>
+        <Label fx:id="lblDetalheMulta" text="Política de multa: -" style="-fx-text-fill: #64748b; -fx-font-size: 11px;"/>
+    </VBox>
+
+    <!-- SELECAO DA PESSOA -->
+    <VBox spacing="6.0">
+        <Label text="Pessoa Responsável (Estudante ou Servidor):" styleClass="form-label"/>
+        <ComboBox fx:id="cbPessoa" prefWidth="480.0" promptText="Selecione a pessoa responsável..." styleClass="form-field"/>
+    </VBox>
+
+    <Region VBox.vgrow="ALWAYS"/>
+
+    <Separator/>
+
+    <!-- BOTOES DE ACAO -->
+    <HBox alignment="CENTER_RIGHT" spacing="12.0">
+        <Button text="Cancelar" onAction="#handleCancelar" styleClass="btn-secondary"/>
+        <Button fx:id="btnConfirmar" text="Confirmar Empréstimo" onAction="#handleConfirmar" styleClass="btn-primary"/>
+    </HBox>
+
+</VBox>

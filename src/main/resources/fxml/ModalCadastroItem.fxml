@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="br.edu.ifpb.laboratorio.gui.controlador.ModalCadastroItemControlador"
+      prefWidth="480.0" spacing="16.0" styleClass="modal-pane" stylesheets="@../css/styles.css">
+
+    <Label text="Cadastrar Novo Equipamento no Acervo" styleClass="modal-title"/>
+    <Label text="O item será registrado no acervo e persistido no arquivo dados/acervo.csv." style="-fx-text-fill: #64748b;"/>
+
+    <Separator/>
+
+    <!-- TIPO DO ITEM -->
+    <VBox spacing="6.0">
+        <Label text="Tipo de Equipamento:" styleClass="form-label"/>
+        <ComboBox fx:id="cbTipo" prefWidth="440.0" promptText="Selecione a categoria..." styleClass="form-field"/>
+    </VBox>
+
+    <!-- PATRIMONIO -->
+    <VBox spacing="6.0">
+        <Label text="Código de Patrimônio:" styleClass="form-label"/>
+        <TextField fx:id="txtPatrimonio" promptText="Ex: PAT-009" styleClass="form-field"/>
+    </VBox>
+
+    <!-- DESCRICAO -->
+    <VBox spacing="6.0">
+        <Label text="Descrição Detalhada do Item:" styleClass="form-label"/>
+        <TextField fx:id="txtDescricao" promptText="Ex: Notebook Lenovo ThinkPad L14 (16GB, SSD 512GB)" styleClass="form-field"/>
+    </VBox>
+
+    <Region VBox.vgrow="ALWAYS"/>
+
+    <Separator/>
+
+    <!-- BOTOES -->
+    <HBox alignment="CENTER_RIGHT" spacing="12.0">
+        <Button text="Cancelar" onAction="#handleCancelar" styleClass="btn-secondary"/>
+        <Button fx:id="btnSalvar" text="Salvar no Acervo" onAction="#handleSalvar" styleClass="btn-success"/>
+    </HBox>
+
+</VBox>

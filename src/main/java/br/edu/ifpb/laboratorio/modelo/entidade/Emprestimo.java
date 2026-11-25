@@ -69,6 +69,22 @@ public class Emprestimo {
     }
 
     /**
+     * Calcula o numero de dias de atraso em relacao a data atual (ou data da devolucao caso ja devolvido).
+     * @return quantidade de dias de atraso (0 se devolvido no prazo ou sem atraso).
+     */
+    public int getDiasAtraso() {
+        LocalDate dataRef = (this.dataDevolucao != null) ? this.dataDevolucao : LocalDate.now();
+        return getDiasAtraso(dataRef);
+    }
+
+    /**
+     * Metodo de conveniencia sinonimo para getDiasAtraso().
+     */
+    public int calcularDiasAtraso() {
+        return getDiasAtraso();
+    }
+
+    /**
      * Calcula o numero de dias de atraso em relacao a data informada.
      * @param dataReferencia data para verificacao de atraso.
      * @return quantidade de dias de atraso (0 se devolvido no prazo ou antes).

@@ -22,9 +22,9 @@ public interface IServicoEmprestimo {
 
     void carregarDados() throws IOException, FormatoArquivoInvalidoException;
 
-    void cadastrarItem(Item item) throws IOException;
+    Item cadastrarItem(Item item) throws IOException;
 
-    void cadastrarItem(String tipo, String patrimonio, String descricao) throws IOException, FormatoArquivoInvalidoException;
+    Item cadastrarItem(String tipo, String patrimonio, String descricao) throws IOException, FormatoArquivoInvalidoException;
 
     Emprestimo registrarEmprestimo(String patrimonio, String matricula)
             throws ItemJaEmprestadoException, ItemNaoEncontradoException, PessoaNaoEncontradaException;

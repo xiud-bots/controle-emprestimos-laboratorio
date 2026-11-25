@@ -64,7 +64,7 @@ public class ServicoEmprestimo implements IServicoEmprestimo {
     }
 
     @Override
-    public void cadastrarItem(Item item) throws IOException {
+    public Item cadastrarItem(Item item) throws IOException {
         if (item == null) {
             throw new IllegalArgumentException("O item a ser cadastrado nao pode ser nulo.");
         }
@@ -80,13 +80,14 @@ public class ServicoEmprestimo implements IServicoEmprestimo {
         this.acervo.add(item);
         // Regrava o acervo de volta no arquivo CSV (Requisito 3.3)
         this.repositorioAcervo.salvar(this.acervo);
+        return item;
     }
 
     /**
      * Metodo sobrecarregado de cadastro de item a partir de strings (Requisito 4.1).
      */
     @Override
-    public void cadastrarItem(String tipo, String patrimonio, String descricao)
+    public Item cadastrarItem(String tipo, String patrimonio, String descricao)
             throws IOException, FormatoArquivoInvalidoException {
         if (tipo == null || tipo.trim().isEmpty()) {
             throw new IllegalArgumentException("O tipo de item nao pode ser nulo ou vazio.");
@@ -106,7 +107,7 @@ public class ServicoEmprestimo implements IServicoEmprestimo {
                     "Tipo de item invalido: " + tipo + ". Use NOTEBOOK, PROJETOR ou KIT_COMPONENTES.");
         }
 
-        cadastrarItem(novoItem);
+        return cadastrarItem(novoItem);
     }
 
     /**

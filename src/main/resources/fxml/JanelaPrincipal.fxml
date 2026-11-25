@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="br.edu.ifpb.laboratorio.gui.controlador.JanelaPrincipalControlador"
+            prefWidth="1080.0" prefHeight="720.0" stylesheets="@../css/styles.css">
+
+    <!-- CABECALHO -->
+    <top>
+        <VBox>
+            <HBox alignment="CENTER_LEFT" spacing="15.0" styleClass="header-box">
+                <VBox spacing="3.0" HBox.hgrow="ALWAYS">
+                    <Label text="IFPB Campus Monteiro — Controle de Empréstimos do Laboratório" styleClass="header-title"/>
+                    <Label text="Sistema de Gestão de Equipamentos, Prazos e Políticas Polimórficas de Multa" styleClass="header-subtitle"/>
+                </VBox>
+                <Label text="Entrega 2: JavaFX" style="-fx-text-fill: #5eead4; -fx-font-weight: bold; -fx-font-size: 13px; -fx-background-color: rgba(255,255,255,0.1); -fx-padding: 6 12; -fx-background-radius: 20;"/>
+            </HBox>
+
+            <!-- BARRA DE ACOES E FERRAMENTAS -->
+            <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="toolbar-box">
+                <Button fx:id="btnNovoEmprestimo" text="➕ Novo Empréstimo" onAction="#abrirModalEmprestimo" styleClass="btn-primary"/>
+                <Button fx:id="btnDevolucao" text="🔄 Registrar Devolução" onAction="#handleRegistrarDevolucao" styleClass="btn-success"/>
+                <Button fx:id="btnCadastrarItem" text="📦 Cadastrar Item" onAction="#abrirModalCadastroItem" styleClass="btn-secondary"/>
+                <Button fx:id="btnRecarregar" text="🔃 Recarregar CSV" onAction="#handleRecarregarDados" styleClass="btn-secondary"/>
+                
+                <Region HBox.hgrow="ALWAYS"/>
+                
+                <Label text="Filtrar Acervo:" style="-fx-font-weight: bold; -fx-text-fill: #475569;"/>
+                <ComboBox fx:id="cbFiltroAcervo" prefWidth="180.0" onAction="#handleFiltrarAcervo"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- AREA CENTRAL: TABELAS DO ACERVO E EMPRESTIMOS -->
+    <center>
+        <SplitPane orientation="VERTICAL" dividerPositions="0.55" style="-fx-background-color: transparent; -fx-padding: 10;">
+            <!-- PAINEL SUPERIOR: ACERVO DO LABORATORIO -->
+            <VBox spacing="8.0" style="-fx-background-color: #ffffff; -fx-background-radius: 8; -fx-padding: 12; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 1);">
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <Label text="📚 Acervo de Equipamentos do Laboratório" style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #0f172a;"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label text="(Selecione uma linha para registrar devolução ou inspecionar)" style="-fx-text-fill: #94a3b8; -fx-font-size: 11px;"/>
+                </HBox>
+                
+                <TableView fx:id="tabelaAcervo" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colPatrimonio" text="Patrimônio" prefWidth="110.0"/>
+                        <TableColumn fx:id="colTipo" text="Tipo de Item" prefWidth="150.0"/>
+                        <TableColumn fx:id="colDescricao" text="Descrição do Equipamento" prefWidth="380.0"/>
+                        <TableColumn fx:id="colPrazo" text="Prazo" prefWidth="90.0"/>
+                        <TableColumn fx:id="colSituacao" text="Situação" prefWidth="110.0"/>
+                        <TableColumn fx:id="colRegraMulta" text="Regra de Multa" prefWidth="200.0"/>
+                    </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                    </columnResizePolicy>
+                </TableView>
+            </VBox>
+
+            <!-- PAINEL INFERIOR: EMPRESTIMOS EM ABERTO -->
+            <VBox spacing="8.0" style="-fx-background-color: #ffffff; -fx-background-radius: 8; -fx-padding: 12; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 1);">
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <Label text="📋 Empréstimos em Aberto" style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #0f172a;"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label text="(Empréstimos ativos com monitoramento automático de atraso e multas)" style="-fx-text-fill: #94a3b8; -fx-font-size: 11px;"/>
+                </HBox>
+
+                <TableView fx:id="tabelaEmprestimos" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colEmpPatrimonio" text="Patrimônio" prefWidth="100.0"/>
+                        <TableColumn fx:id="colEmpDescricao" text="Equipamento" prefWidth="260.0"/>
+                        <TableColumn fx:id="colEmpPessoa" text="Responsável" prefWidth="210.0"/>
+                        <TableColumn fx:id="colEmpMatricula" text="Matrícula" prefWidth="110.0"/>
+                        <TableColumn fx:id="colEmpDataEmprestimo" text="Data Empréstimo" prefWidth="120.0"/>
+                        <TableColumn fx:id="colEmpDataPrevista" text="Data Prevista" prefWidth="120.0"/>
+                        <TableColumn fx:id="colEmpAtraso" text="Atraso" prefWidth="90.0"/>
+                        <TableColumn fx:id="colEmpMulta" text="Multa Atual" prefWidth="110.0"/>
+                    </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                    </columnResizePolicy>
+                </TableView>
+            </VBox>
+        </SplitPane>
+    </center>
+
+    <!-- RODAPE DE TOTAIS -->
+    <bottom>
+        <HBox alignment="CENTER_LEFT" spacing="20.0" styleClass="footer-totais">
+            <!-- Card Total Acervo -->
+            <VBox styleClass="card-total">
+                <Label text="TOTAL NO ACERVO" styleClass="card-total-label"/>
+                <Label fx:id="lblTotalAcervo" text="0" styleClass="card-total-valor"/>
+            </VBox>
+
+            <!-- Card Disponiveis -->
+            <VBox styleClass="card-total, card-disponiveis">
+                <Label text="ITENS DISPONÍVEIS" styleClass="card-total-label"/>
+                <Label fx:id="lblTotalDisponiveis" text="0" styleClass="card-total-valor"/>
+            </VBox>
+
+            <!-- Card Emprestados -->
+            <VBox styleClass="card-total">
+                <Label text="TOTAL EMPRESTADO" styleClass="card-total-label"/>
+                <Label fx:id="lblTotalEmprestados" text="0" styleClass="card-total-valor" style="-fx-text-fill: #2563eb;"/>
+            </VBox>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <!-- Card Multas Acumuladas -->
+            <VBox styleClass="card-total, card-multas" alignment="CENTER_RIGHT">
+                <Label text="MULTAS ACUMULADAS EM ATRASO" styleClass="card-total-label"/>
+                <Label fx:id="lblTotalMultas" text="R$ 0,00" styleClass="card-total-valor"/>
+            </VBox>
+        </HBox>
+    </bottom>
+</BorderPane>
