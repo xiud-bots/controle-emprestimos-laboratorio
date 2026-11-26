@@ -79,26 +79,17 @@ O projeto foi modelado e organizado com precisão para as duas noites de apresen
 
 ### 5.1 Pré-requisitos
 - **Java:** OpenJDK 21 LTS
-- **Maven:** Apache Maven 3.8+
+- **Maven:** Apache Maven 3.8+ (exigido para a Etapa 2 / JavaFX)
 
 ### 5.2 Executando a Entrega 1 (Modelo no Terminal)
-Para executar o roteiro oficial da Seção 7 de forma automatizada:
+A Entrega 1 opera em Java 21 puro, compilando e executando diretamente sem dependência de Maven:
 ```bash
 ./executar-etapa1.sh
-```
-Ou via Maven:
-```bash
-mvn exec:java -Dexec.mainClass="br.edu.ifpb.laboratorio.terminal.PrincipalTerminal"
 ```
 
 Para abrir o menu interativo no terminal:
 ```bash
 ./executar-etapa1.sh --interativo
-```
-
-Para rodar a suíte completa de testes unitários:
-```bash
-mvn test
 ```
 
 ### 5.3 Executando a Entrega 2 (Interface Gráfica JavaFX)
